@@ -1,20 +1,13 @@
 import pandas as pd
 from pathlib import Path
+from datetime import datetime
 
-OUTPUT_DIR = Path("output")
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_DIR = ROOT / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# -----------------------------
-# CBPF API endpoints
-# -----------------------------
 PROJECT_SUMMARY_URL = "https://cbpfapi.unocha.org/vo1/odata/ProjectSummary?$format=csv"
 CONTRIBUTION_URL = "https://cbpfapi.unocha.org/vo1/odata/Contribution?$format=csv&includeTransfer=1"
-
-# -----------------------------
-# CERF API endpoints
-# -----------------------------
-CERF_CONTRIBUTION_URL = "https://cerfgms-webapi.unocha.org/v1/donorcontribution/year/2026.xml"
-CERF_PROJECT_URL = "https://cerfgms-webapi.unocha.org/v1/project/year/2026.xml"
 
 print("Downloading CBPF Project Summary...")
 project_summary = pd.read_csv(PROJECT_SUMMARY_URL, low_memory=False)
@@ -22,25 +15,14 @@ project_summary = pd.read_csv(PROJECT_SUMMARY_URL, low_memory=False)
 print("Downloading CBPF Contribution...")
 contribution = pd.read_csv(CONTRIBUTION_URL, low_memory=False)
 
-print("Downloading CERF Contribution...")
-cerf_contribution = pd.read_xml(CERF_CONTRIBUTION_URL)
-
-print("Downloading CERF Projects...")
-cerf_projects = pd.read_xml(CERF_PROJECT_URL)
-
-# -----------------------------
-# CBPF: USG contributions for FY2026
-# -----------------------------
 usg_contrib = contribution[
     (contribution["FiscalYear"] == 2026) &
     (contribution["DonorName"].astype(str).str.strip() == "United States")
 ].copy()
 
-# Funds that received USG CBPF contributions
-usg_funds = usg_contrib["PooledFundName"].dropna().unique()
+usg_funds = sorted(usg_contrib["PooledFundName"].dropna().unique())
 
-# CBPF funding summary
-cbpf_funding = (
+funding = (
     usg_contrib
     .groupby(["PooledFundId", "PooledFundName"], as_index=False)
     .agg(
@@ -51,63 +33,43 @@ cbpf_funding = (
     .sort_values("PaidAmt", ascending=False)
 )
 
-cbpf_funding.insert(0, "Mechanism", "CBPF")
-cbpf_funding.rename(columns={"PooledFundName": "Fund"}, inplace=True)
+funding.insert(0, "Mechanism", "CBPF")
+funding.rename(columns={"PooledFundName": "Fund"}, inplace=True)
 
-# -----------------------------
-# CERF: USG contributions for FY2026
-# -----------------------------
-# CERF column names may vary, so this searches each row for "United States"
-usg_cerf_contrib = cerf_contribution[
-    cerf_contribution.astype(str).apply(
-        lambda row: row.str.contains("United States", case=False, regex=False).any(),
-        axis=1
-    )
-].copy()
-
-# Try to summarize CERF contribution amounts if common amount columns exist
-cerf_paid_col = None
-cerf_pledge_col = None
-
-for col in cerf_contribution.columns:
-    lower = col.lower()
-    if cerf_paid_col is None and "paid" in lower and "amt" in lower:
-        cerf_paid_col = col
-    if cerf_pledge_col is None and "pledge" in lower and "amt" in lower:
-        cerf_pledge_col = col
-
-cerf_summary = pd.DataFrame([{
-    "Mechanism": "CERF",
-    "PooledFundId": "",
-    "Fund": "Central Emergency Response Fund",
-    "PledgeAmt": usg_cerf_contrib[cerf_pledge_col].sum() if cerf_pledge_col else "",
-    "PaidAmt": usg_cerf_contrib[cerf_paid_col].sum() if cerf_paid_col else "",
-    "ContributionRows": len(usg_cerf_contrib)
-}])
-
-# Combined Funding tab
-funding = pd.concat(
-    [
-        cbpf_funding[["Mechanism", "PooledFundId", "Fund", "PledgeAmt", "PaidAmt", "ContributionRows"]],
-        cerf_summary
+readme = pd.DataFrame({
+    "Item": [
+        "Workbook generated",
+        "Mechanism covered",
+        "Project source",
+        "Contribution source",
+        "USG filter",
+        "Fiscal year filter",
+        "Project allocation year filter",
+        "Important limitation"
     ],
-    ignore_index=True
-)
+    "Value": [
+        datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "UN OCHA Country-Based Pooled Funds (CBPF)",
+        PROJECT_SUMMARY_URL,
+        CONTRIBUTION_URL,
+        'DonorName == "United States"',
+        "FiscalYear == 2026",
+        "AllocationYear == 2026",
+        "Project tabs show projects implemented through pooled funds that received U.S. contributions; they do not prove direct U.S. funding to individual projects."
+    ]
+})
 
-# -----------------------------
-# Export workbook
-# -----------------------------
 excel_path = OUTPUT_DIR / "UNOCHA_USG_Pooled_Funds_2026.xlsx"
 
-with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
-    funding.to_excel(writer, sheet_name="Funding", index=False)
+print("Building Excel workbook...")
 
-    # Raw CBPF data
+with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
+    readme.to_excel(writer, sheet_name="README_Methodology", index=False)
+    funding.to_excel(writer, sheet_name="Funding", index=False)
     project_summary.to_excel(writer, sheet_name="RAW_CBPF_ProjectSummary", index=False)
     contribution.to_excel(writer, sheet_name="RAW_CBPF_Contribution", index=False)
     usg_contrib.to_excel(writer, sheet_name="USG_CBPF_Contrib_2026", index=False)
 
-    # One tab per USG-supported CBPF
     for fund in usg_funds:
         fund_projects = project_summary[
             (project_summary["PooledFundName"] == fund) &
@@ -116,10 +78,5 @@ with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
 
         sheet_name = f"CBPF_{fund}"[:31]
         fund_projects.to_excel(writer, sheet_name=sheet_name, index=False)
-
-    # CERF data
-    cerf_contribution.to_excel(writer, sheet_name="RAW_CERF_Contribution", index=False)
-    cerf_projects.to_excel(writer, sheet_name="RAW_CERF_Projects", index=False)
-    usg_cerf_contrib.to_excel(writer, sheet_name="USG_CERF_Contrib_2026", index=False)
 
 print(f"Saved: {excel_path}")
