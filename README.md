@@ -185,15 +185,13 @@ ocha-mou-cbpf-cerf-data/
 
 ---
 
-## Future Development
+## Future 
 
-Planned enhancements include:
+Need to add:
 
 * Integration of the OCHA Central Emergency Response Fund (CERF) data.
-* Automated dashboard generation.
-* Project-level visualizations.
 * Time-series analysis of U.S. Government contributions.
-* Geographic mapping of pooled fund activities.
+* Geographic mapping of USG pooled fund activities.
 
 ---
 
