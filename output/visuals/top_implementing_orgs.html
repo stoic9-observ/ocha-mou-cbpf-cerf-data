@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-72fcb6602b7fb4ab6df9a1d7a6998b31"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "OrganizationName", "type": "nominal"}, {"field": "OrganizationType", "type": "nominal"}, {"field": "TotalBudget", "type": "quantitative"}, {"field": "ProjectCount", "type": "quantitative"}], "x": {"field": "TotalBudget", "title": "Total Project Budget", "type": "quantitative"}, "y": {"field": "OrganizationName", "sort": "-x", "title": "Organization", "type": "nominal"}}, "height": 500, "title": "Top Implementing Organizations in U.S.-Supported CBPFs", "width": 900, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-72fcb6602b7fb4ab6df9a1d7a6998b31": [{"OrganizationName": "World Food Programme", "OrganizationType": "UN Agency", "TotalBudget": 200527940.9, "ProjectCount": 7}, {"OrganizationName": "UN Agency", "OrganizationType": "UN Agency", "TotalBudget": 188165563.56, "ProjectCount": 12}, {"OrganizationName": "International NGO", "OrganizationType": "International NGO", "TotalBudget": 164316242.31, "ProjectCount": 28}, {"OrganizationName": "United Nations High Commissioner for Refugees", "OrganizationType": "UN Agency", "TotalBudget": 89334556.39, "ProjectCount": 7}, {"OrganizationName": "United Nations Children's Fund", "OrganizationType": "UN Agency", "TotalBudget": 84883469.28, "ProjectCount": 6}, {"OrganizationName": "International Organization for Migration", "OrganizationType": "UN Agency", "TotalBudget": 66851750.66, "ProjectCount": 8}, {"OrganizationName": "Norwegian Refugee Council", "OrganizationType": "International NGO", "TotalBudget": 57645769.03, "ProjectCount": 9}, {"OrganizationName": "Agency for Technical Cooperation and Development", "OrganizationType": "International NGO", "TotalBudget": 38449999.989999995, "ProjectCount": 3}, {"OrganizationName": "Charitable Organization 'Charity Fund Team4UA'", "OrganizationType": "National NGO", "TotalBudget": 31999999.99, "ProjectCount": 2}, {"OrganizationName": "CHARITY ORGANIZATION \u00abCHARITABLE FOUNDATION \u00ab\u0410NGELS OF SALVATION\u00bb", "OrganizationType": "National NGO", "TotalBudget": 24997567.54, "ProjectCount": 2}, {"OrganizationName": "Food and Agriculture Organization of the United Nations", "OrganizationType": "UN Agency", "TotalBudget": 24650000.0, "ProjectCount": 3}, {"OrganizationName": "Mercy Corps", "OrganizationType": "International NGO", "TotalBudget": 21000000.009999998, "ProjectCount": 3}, {"OrganizationName": "World Vision International", "OrganizationType": "International NGO", "TotalBudget": 18302033.009999998, "ProjectCount": 3}, {"OrganizationName": "Danish Refugee Council", "OrganizationType": "International NGO", "TotalBudget": 17686931.0, "ProjectCount": 3}, {"OrganizationName": "Save the Children Fund", "OrganizationType": "International NGO", "TotalBudget": 14100000.0, "ProjectCount": 2}, {"OrganizationName": "Solidarit\u00e9s International", "OrganizationType": "International NGO", "TotalBudget": 13403032.0, "ProjectCount": 3}, {"OrganizationName": "Charitable Organization 'Charitable Fund 'The Right to Protection'", "OrganizationType": "National NGO", "TotalBudget": 13000000.0, "ProjectCount": 1}, {"OrganizationName": "GOAL", "OrganizationType": "International NGO", "TotalBudget": 10521492.93, "ProjectCount": 3}, {"OrganizationName": "International Rescue Committee", "OrganizationType": "International NGO", "TotalBudget": 10000000.0, "ProjectCount": 1}, {"OrganizationName": "Premi\u00e8re Urgence Internationale", "OrganizationType": "International NGO", "TotalBudget": 9700006.29, "ProjectCount": 2}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

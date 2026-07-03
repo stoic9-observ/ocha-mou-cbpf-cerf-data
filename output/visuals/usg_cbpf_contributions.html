@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-5c3cce15be89ff6ea43c3a8c4bcac4ad"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Fund", "type": "nominal"}, {"field": "PledgeAmt", "type": "quantitative"}, {"field": "PaidAmt", "type": "quantitative"}, {"field": "ContributionRows", "type": "quantitative"}], "x": {"field": "PaidAmt", "title": "USG Paid Amount", "type": "quantitative"}, "y": {"field": "Fund", "sort": "-x", "title": "Pooled Fund", "type": "nominal"}}, "height": 350, "title": "FY2026 U.S. Contributions to OCHA Country-Based Pooled Funds", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-5c3cce15be89ff6ea43c3a8c4bcac4ad": [{"Mechanism": "CBPF", "PooledFundId": 15, "Fund": "Sudan", "PledgeAmt": 200000000, "PaidAmt": 200000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 81, "Fund": "Ukraine", "PledgeAmt": 155000000, "PaidAmt": 155000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 24, "Fund": "DRC", "PledgeAmt": 375000000, "PaidAmt": 150000000, "ContributionRows": 2}, {"Mechanism": "CBPF", "PooledFundId": 99, "Fund": "Bangladesh (AP-RHPF)", "PledgeAmt": 150000000, "PaidAmt": 150000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 62, "Fund": "Syria", "PledgeAmt": 150000000, "PaidAmt": 150000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 59, "Fund": "Myanmar", "PledgeAmt": 140000000, "PaidAmt": 140000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 88, "Fund": "Haiti (RhPF-LAC)", "PledgeAmt": 125000000, "PaidAmt": 125000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 75, "Fund": "Nigeria", "PledgeAmt": 125000000, "PaidAmt": 125000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 87, "Fund": "Colombia (RhPF-LAC)", "PledgeAmt": 100000000, "PaidAmt": 100000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 19, "Fund": "South Sudan", "PledgeAmt": 150000000, "PaidAmt": 100000000, "ContributionRows": 2}, {"Mechanism": "CBPF", "PooledFundId": 90, "Fund": "Chad (RhPF-WCA)", "PledgeAmt": 100000000, "PaidAmt": 100000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 53, "Fund": "Ethiopia", "PledgeAmt": 100000000, "PaidAmt": 100000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 89, "Fund": "Mozambique (RhPF)", "PledgeAmt": 80000000, "PaidAmt": 80000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 512, "Fund": "Uganda (ESAHF)", "PledgeAmt": 150000000, "PaidAmt": 75000000, "ContributionRows": 2}, {"Mechanism": "CBPF", "PooledFundId": 510, "Fund": "Honduras (RhPF-LAC)", "PledgeAmt": 65000000, "PaidAmt": 65000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 508, "Fund": "Guatemala (RhPF-LAC)", "PledgeAmt": 60000000, "PaidAmt": 60000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 511, "Fund": "Kenya (ESAHF)", "PledgeAmt": 50000000, "PaidAmt": 50000000, "ContributionRows": 1}, {"Mechanism": "CBPF", "PooledFundId": 509, "Fund": "El Salvador (RhPF-LAC)", "PledgeAmt": 25000000, "PaidAmt": 25000000, "ContributionRows": 1}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
