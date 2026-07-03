@@ -1,0 +1,23 @@
+Country,Dec 2025 MOU,May 2026 tranche,CBPF API,PledgeAmt,PaidAmt,ContributionRows,FundNames,ProjectCount,TotalProjectBudget,Notes
+Sudan,✓,✓,✓,200000000.0,200000000.0,1.0,Sudan,24.0,216499997.2,
+Ukraine,✓,✓,✓,155000000.0,155000000.0,1.0,Ukraine,39.0,238969036.3,
+Bangladesh,✓,✓,✓,150000000.0,150000000.0,1.0,Bangladesh (AP-RHPF),0.0,0.0,Regional pooled fund.
+DRC,✓,✓,✓,375000000.0,150000000.0,2.0,DRC,21.0,149924958.46,
+Syria,✓,✓,✓,150000000.0,150000000.0,1.0,Syria,17.0,145900000.0,
+Myanmar,✓,✓,✓,140000000.0,140000000.0,1.0,Myanmar,17.0,136331809.52,Listed as Burma in May tranche.
+Haiti,✓,✓,✓,125000000.0,125000000.0,1.0,Haiti (RhPF-LAC),0.0,0.0,Regional pooled fund.
+Nigeria,✓,✓,✓,125000000.0,125000000.0,1.0,Nigeria,17.0,121500055.47999999,
+Chad,✓,✓,✓,100000000.0,100000000.0,1.0,Chad (RhPF-WCA),0.0,0.0,Regional pooled fund.
+Colombia,,✓,✓,100000000.0,100000000.0,1.0,Colombia (RhPF-LAC),0.0,0.0,Regional pooled fund.
+Ethiopia,✓,✓,✓,100000000.0,100000000.0,1.0,Ethiopia,29.0,102499365.69,
+South Sudan,✓,✓,✓,150000000.0,100000000.0,2.0,South Sudan,36.0,110124840.91,
+Mozambique,✓,✓,✓,80000000.0,80000000.0,1.0,Mozambique (RhPF),25.0,83322012.08,Regional pooled fund.
+Uganda,✓,✓,✓,150000000.0,75000000.0,2.0,Uganda (ESAHF),0.0,0.0,Regional pooled fund.
+Honduras,✓,✓,✓,65000000.0,65000000.0,1.0,Honduras (RhPF-LAC),0.0,0.0,Regional pooled fund.
+Guatemala,✓,✓,✓,60000000.0,60000000.0,1.0,Guatemala (RhPF-LAC),0.0,0.0,Regional pooled fund.
+Kenya,✓,✓,✓,50000000.0,50000000.0,1.0,Kenya (ESAHF),0.0,0.0,Regional pooled fund.
+El Salvador,✓,✓,✓,25000000.0,25000000.0,1.0,El Salvador (RhPF-LAC),0.0,0.0,Regional pooled fund.
+Central African Republic,,✓,,0.0,0.0,0.0,,0.0,0.0,Listed in May tranche; not currently matched to FY2026 USG CBPF contribution data.
+Lebanon,,✓,,0.0,0.0,0.0,,0.0,0.0,Listed in May tranche; not currently matched to FY2026 USG CBPF contribution data.
+Venezuela,,✓,,0.0,0.0,0.0,,0.0,0.0,Listed in May tranche; not currently matched to FY2026 USG CBPF contribution data.
+TOTAL,17 countries,21 countries,18 funds,2300000000.0,1950000000.0,21.0,,225.0,1305072075.6399999,
