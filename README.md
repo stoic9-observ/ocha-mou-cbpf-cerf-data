@@ -187,6 +187,45 @@ ocha-mou-cbpf-cerf-data/
 ```
 
 ---
+## 🚀 Quick Start
+
+Clone the repository:
+
+```bash
+git clone https://github.com/stoic9-observ/ocha-mou-cbpf-cerf-data.git
+cd ocha-mou-cbpf-cerf-data
+```
+
+Create and activate a Python virtual environment:
+
+```bash
+python3 -m venv .venv
+
+# macOS / Linux
+source .venv/bin/activate
+
+# Windows
+.venv\Scripts\activate
+```
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the workbook update script:
+
+```bash
+python scripts/update_unocha_workbook.py
+```
+
+The updated workbook will be saved to:
+
+```text
+output/UNOCHA_USG_Pooled_Funds_2026.xlsx
+```
+---
 
 ## Future 
 
