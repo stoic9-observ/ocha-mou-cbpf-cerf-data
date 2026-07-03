@@ -17,6 +17,9 @@ The workflow was developed to answer questions such as:
 
 The workbook is regenerated each time the script is run, ensuring the analysis reflects the latest data available from OCHA.
 
+<img width="1972" height="1718" alt="usg_cbpf_contributions_by_country" src="https://github.com/user-attachments/assets/a6c4892a-fa38-4370-af94-969ac3fe2e68" />
+
+
 ---
 
 ## Data Sources
