@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-6c94e82cce19aa137ca4f95437c83a35"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": "Fund", "type": "nominal"}, {"field": "Mechanism", "type": "nominal"}, {"field": "Pledged", "format": "$,.0f", "type": "quantitative"}, {"field": "Paid", "format": "$,.0f", "type": "quantitative"}, {"field": "Outstanding", "format": "$,.0f", "type": "quantitative"}, {"field": "Records", "type": "quantitative"}, {"field": "Announcement Coverage", "type": "nominal"}], "x": {"field": "Paid", "title": "Paid / received amount (USD)", "type": "quantitative"}, "y": {"field": "Fund", "sort": "-x", "title": "Fund", "type": "nominal"}}, "height": 520, "title": "FY2026 U.S. paid contributions by OCHA pooled fund", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-6c94e82cce19aa137ca4f95437c83a35": [{"Fund": "Sudan", "Mechanism": "CBPF", "Country": "Sudan", "Pledged": 200000000, "Paid": 200000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Ukraine", "Mechanism": "CBPF", "Country": "Ukraine", "Pledged": 155000000, "Paid": 155000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Bangladesh (AP-RHPF)", "Mechanism": "CBPF", "Country": "Bangladesh", "Pledged": 150000000, "Paid": 150000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "DRC", "Mechanism": "CBPF", "Country": "DRC", "Pledged": 375000000, "Paid": 150000000, "Records": 2, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 225000000, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Syria", "Mechanism": "CBPF", "Country": "Syria", "Pledged": 150000000, "Paid": 150000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Myanmar", "Mechanism": "CBPF", "Country": "Myanmar", "Pledged": 140000000, "Paid": 140000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Haiti (RhPF-LAC)", "Mechanism": "CBPF", "Country": "Haiti", "Pledged": 125000000, "Paid": 125000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Nigeria", "Mechanism": "CBPF", "Country": "Nigeria", "Pledged": 125000000, "Paid": 125000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Colombia (RhPF-LAC)", "Mechanism": "CBPF", "Country": "Colombia", "Pledged": 100000000, "Paid": 100000000, "Records": 1, "Dec 2025 MOU": false, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "May Notice only"}, {"Fund": "Ethiopia", "Mechanism": "CBPF", "Country": "Ethiopia", "Pledged": 100000000, "Paid": 100000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Chad (RhPF-WCA)", "Mechanism": "CBPF", "Country": "Chad", "Pledged": 100000000, "Paid": 100000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "South Sudan", "Mechanism": "CBPF", "Country": "South Sudan", "Pledged": 150000000, "Paid": 100000000, "Records": 2, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 50000000, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Mozambique (RhPF)", "Mechanism": "CBPF", "Country": "Mozambique", "Pledged": 80000000, "Paid": 80000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Uganda (ESAHF)", "Mechanism": "CBPF", "Country": "Uganda", "Pledged": 150000000, "Paid": 75000000, "Records": 2, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 75000000, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Honduras (RhPF-LAC)", "Mechanism": "CBPF", "Country": "Honduras", "Pledged": 65000000, "Paid": 65000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Guatemala (RhPF-LAC)", "Mechanism": "CBPF", "Country": "Guatemala", "Pledged": 60000000, "Paid": 60000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "Kenya (ESAHF)", "Mechanism": "CBPF", "Country": "Kenya", "Pledged": 50000000, "Paid": 50000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "CERF", "Mechanism": "CERF", "Country": "Global", "Pledged": 100000000, "Paid": 50000000, "Records": 2, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 50000000, "Announcement Coverage": "Dec MOU + May Notice"}, {"Fund": "El Salvador (RhPF-LAC)", "Mechanism": "CBPF", "Country": "El Salvador", "Pledged": 25000000, "Paid": 25000000, "Records": 1, "Dec 2025 MOU": true, "May 2026 Notice": true, "Outstanding": 0, "Announcement Coverage": "Dec MOU + May Notice"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

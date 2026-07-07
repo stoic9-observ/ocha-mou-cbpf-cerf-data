@@ -1,0 +1,262 @@
+---
+title: "U.S. Support to OCHA Country-Based Pooled Funds"
+subtitle: "Tracking Publicly Announced FY2026 U.S. Contributions Through the UN OCHA CBPF Data Platform"
+author: "Spencer"
+date: today
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    fontsize: 11pt
+    geometry:
+      - margin=1in
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Executive Summary
+
+> **Draft**
+
+This report examines publicly announced U.S. Government (USG) support to the United Nations Office for the Coordination of Humanitarian Affairs (OCHA) Country-Based Pooled Funds (CBPFs) during Fiscal Year (FY) 2026. Using official OCHA API data, the report traces announced U.S. contributions to individual pooled funds and the humanitarian projects associated with those funds.
+
+The analysis compares the December 29, 2025 Memorandum of Understanding (MOU) and the May 14, 2026 supplemental funding announcement with live administrative data published through the OCHA CBPF API.
+
+Key findings include:
+
+- Total U.S. pledged funding
+- Total U.S. paid funding
+- Number of pooled funds supported
+- Number of associated humanitarian projects
+- Major implementing organizations
+- Geographic distribution of funding
+
+---
+
+# 1. Background
+
+## Country-Based Pooled Funds
+
+Describe what CBPFs are.
+
+Describe how OCHA administers pooled funding.
+
+Describe why pooled funds are important humanitarian financing mechanisms.
+
+## U.S.–OCHA Partnership
+
+Describe the December 29, 2025 MOU.
+
+Describe the May 14, 2026 supplemental announcement.
+
+Explain that these announcements form the basis for this analysis.
+
+---
+
+# 2. Research Questions
+
+This report seeks to answer the following questions:
+
+1. Which CBPFs received FY2026 U.S. contributions?
+2. Which countries announced by the United States appear in official OCHA contribution data?
+3. How much funding has been pledged and paid?
+4. Which humanitarian projects are associated with those pooled funds?
+5. Which organizations are implementing those projects?
+
+---
+
+# 3. Data Sources
+
+## Official Sources
+
+* OCHA CBPF Contribution API
+* OCHA CBPF Project Summary API
+* December 29, 2025 MOU announcement
+* May 14, 2026 supplemental funding announcement
+
+## Methodology
+
+This report filters contribution data using:
+
+- Donor = United States
+- Fiscal Year = 2026
+
+Projects are linked using **PooledFundId**, the common identifier shared across OCHA endpoints.
+
+---
+
+# 4. Overview of U.S. Commitments
+
+## December 2025 MOU
+
+*Insert narrative*
+
+### Countries
+
+*Insert table*
+
+## May 2026 Supplemental Funding
+
+*Insert narrative*
+
+### Countries
+
+*Insert table*
+
+## Comparison
+
+Discuss countries retained and countries added.
+
+---
+
+# 5. Crosswalk Between Public Announcements and OCHA Data
+
+This chapter compares official announcements with the live OCHA CBPF API.
+
+Insert master crosswalk table.
+
+Questions addressed:
+
+- Which countries appear in both announcements?
+- Which countries appear in OCHA data?
+- Which countries have associated projects?
+
+---
+
+# 6. U.S. Contributions by Pooled Fund
+
+Insert:
+
+- Bar chart of pledged funding
+- Bar chart of paid funding
+
+Discuss:
+
+- Largest recipients
+- Regional pooled funds
+- Differences between pledged and paid amounts
+
+---
+
+# 7. Humanitarian Projects Supported
+
+Summarize:
+
+- Number of projects
+- Total project budget
+- Average project budget
+
+Insert:
+
+- Table of projects by pooled fund
+- Table of project counts
+
+---
+
+# 8. Implementing Organizations
+
+Summarize:
+
+- Largest implementing partners
+- Organization types
+- Number of projects by partner
+
+Insert charts.
+
+---
+
+# 9. Geographic Distribution
+
+Insert:
+
+- Country summary table
+- Map (future)
+
+Discuss geographic coverage.
+
+---
+
+# 10. Key Findings
+
+Summarize major observations.
+
+Example topics:
+
+- Coverage of the original MOU
+- Expansion under the May announcement
+- Distribution across pooled funds
+- Largest humanitarian operations
+- Relationship between contributions and approved projects
+
+---
+
+# 11. Limitations
+
+Important considerations:
+
+- CBPFs are pooled financing mechanisms.
+- Individual projects cannot be interpreted as receiving direct U.S. funding.
+- Project approval dates and contribution dates may differ.
+- API data represents a snapshot at the time of analysis.
+
+---
+
+# 12. Conclusion
+
+Summarize the overall findings.
+
+Discuss opportunities for future analysis.
+
+---
+
+# Appendix A — Methodology
+
+Describe:
+
+- API endpoints
+- Filters
+- Country normalization
+- Matching using PooledFundId
+
+---
+
+# Appendix B — Code
+
+Include the Python workflow used to reproduce the analysis.
+
+---
+
+# Appendix C — Data Dictionary
+
+Describe major variables used.
+
+Examples:
+
+| Variable | Description |
+|----------|-------------|
+| PooledFundId | Unique pooled fund identifier |
+| PooledFundName | OCHA pooled fund name |
+| DonorName | Contributing donor |
+| FiscalYear | Contribution fiscal year |
+| PledgeAmt | Amount pledged |
+| PaidAmt | Amount paid |
+| AllocationYear | Project allocation year |
+| Budget | Approved project budget |
+
+---
+
+# References
+
+United Nations Office for the Coordination of Humanitarian Affairs.
+
+Country-Based Pooled Funds API.
+
+United States Department of State.
+
+United Nations News.
+
+Additional references.
